@@ -36,6 +36,7 @@
             this.main_landing = new System.Windows.Forms.Panel();
             this.main_enter_accnt = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.accn_num_keypad = new BankMachine.KeyPad();
             this.main_landing.SuspendLayout();
             this.main_enter_accnt.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             // 
             this.main_accnt_num.BackColor = System.Drawing.Color.White;
             this.main_accnt_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.main_accnt_num.Location = new System.Drawing.Point(208, 456);
+            this.main_accnt_num.Location = new System.Drawing.Point(208, 462);
             this.main_accnt_num.Name = "main_accnt_num";
             this.main_accnt_num.ReadOnly = true;
             this.main_accnt_num.Size = new System.Drawing.Size(182, 29);
@@ -106,6 +107,7 @@
             // 
             // main_enter_accnt
             // 
+            this.main_enter_accnt.Controls.Add(this.accn_num_keypad);
             this.main_enter_accnt.Controls.Add(this.label5);
             this.main_enter_accnt.Location = new System.Drawing.Point(30, 143);
             this.main_enter_accnt.Name = "main_enter_accnt";
@@ -122,6 +124,15 @@
             this.label5.Size = new System.Drawing.Size(267, 33);
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter your account:";
+            // 
+            // accn_num_keypad
+            // 
+            this.accn_num_keypad.Location = new System.Drawing.Point(185, 100);
+            this.accn_num_keypad.Name = "accn_num_keypad";
+            this.accn_num_keypad.Size = new System.Drawing.Size(169, 286);
+            this.accn_num_keypad.TabIndex = 1;
+            this.accn_num_keypad.CharEntered += new BankMachine.KeyPad.CharEnteredEventHandler(this.accn_num_keypad_CharEntered);
+            this.accn_num_keypad.Load += new System.EventHandler(this.accn_num_keypad_Load_1);
             // 
             // MainScreen
             // 
@@ -159,6 +170,7 @@
         private System.Windows.Forms.Panel main_landing;
         private System.Windows.Forms.Panel main_enter_accnt;
         private System.Windows.Forms.Label label5;
+        private KeyPad accn_num_keypad;
     }
 }
 

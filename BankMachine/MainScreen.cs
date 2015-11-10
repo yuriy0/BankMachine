@@ -70,5 +70,27 @@ namespace BankMachine
                 this.main_enter_accnt.Visible = false;
             }
         }
+
+        private void accn_num_keypad_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void accn_num_keypad_CharEntered(object sender, char digit)
+        {
+            if (digit == ((char)8))
+            {
+                this.main_accnt_num.Text = this.main_accnt_num.Text.Remove(this.main_accnt_num.Text.Length - 1);
+            } else
+            {
+                this.main_accnt_num.Text += digit;
+            }
+        }
+
+        private void accn_num_keypad_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
