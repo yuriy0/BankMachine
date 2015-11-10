@@ -36,8 +36,8 @@
             this.main_landing = new System.Windows.Forms.Panel();
             this.main_enter_accnt = new System.Windows.Forms.Panel();
             this.mainLabel = new System.Windows.Forms.Label();
+            this.mainScreen_keypad = new BankMachine.KeyPad(false, main_accnt_num);
             this.label5 = new System.Windows.Forms.Label();
-            this.mainScreen_keypad = new BankMachine.KeyPad();
             this.main_landing.SuspendLayout();
             this.main_enter_accnt.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +94,7 @@
             this.main_accnt_num.TabIndex = 4;
             this.main_accnt_num.MouseClick += new System.Windows.Forms.MouseEventHandler(this.main_accnt_num_MouseClick);
             this.main_accnt_num.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.main_accnt_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.main_accnt_num_KeyPress);
             // 
             // main_landing
             // 
@@ -127,16 +128,6 @@
             this.mainLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.mainLabel.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(142, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(267, 33);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Enter your account:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // mainScreen_keypad
             // 
             this.mainScreen_keypad.AllowDot = false;
@@ -146,6 +137,16 @@
             this.mainScreen_keypad.TabIndex = 0;
             this.mainScreen_keypad.CharEntered += new BankMachine.KeyPad.CharEnteredEventHandler(this.accn_num_keypad_CharEntered);
             this.mainScreen_keypad.Submit += new BankMachine.KeyPad.SubmitEventHandler(this.mainScreen_keypad_Submit);
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(142, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(267, 33);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Enter your account:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainScreen
             // 

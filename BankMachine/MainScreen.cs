@@ -14,12 +14,11 @@ namespace BankMachine
     {
 
         public Person whosTryingToLogIn;
-        public String pinAttempt; 
 
         public MainScreen()
         {
             InitializeComponent();
-            this.mainScreen_keypad.AllowDot = false; 
+            this.mainScreen_keypad.AllowDot = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,10 +47,67 @@ namespace BankMachine
             if (e.KeyChar == 's') // s for swipe 
             {
                 string pOut = "";
-                var r = Util.InputBox("Simulating swiping/inserting card", "Enter a card/account number", ref pOut);
-                
+                var r = Util.InputBox("Simulating the swiping/inserting of a card card.", "Enter a card/account number", ref pOut);
+
+                if (try_login(pOut)) 
+                {
+                    MessageBox.Show("Swiping/inserting successful. Please proceed.");
+                }
+                else
+                {
+                    MessageBox.Show(String.Format("Swiping/inserting card '{0}' failed. Please try again.", pOut));
+                    trans_mainSplash();
+                }
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.S) // Handles this key press globally in the form
+            {
+                MainScreen_KeyPress(null, new KeyPressEventArgs('s'));
+                return true;    // indicate that you handled this keystroke
+            }
+            else { return base.ProcessCmdKey(ref msg, keyData); }
+        }
+
+        private void try_enter_pin(String guess)
+        {
+
+            int left = Person.MaxPinAttempts - whosTryingToLogIn.NumPinAttempts;
+
+            if (left <= 0)
+            {
+                this.mainLabel.Text = "Your PIN has been blocked due to too many incorrect guesses";
+                return;
+            }
+
+            bool loginSucceed = whosTryingToLogIn.guessPIN(guess);
+            if (loginSucceed) // Login succeeded
+            {
                 trans_loggedIn();
             }
+            else
+            {
+                this.mainLabel.Text = string.Format("PIN incorrect. {0} attempt(s) left.", left - 1);
+            }
+
+        }
+
+        private bool try_login(String acct)
+        {
+            bool r = try_lookup_accnt_num(acct);
+            if (r)
+            {
+                this.mainLabel.Text = "Enter your PIN:";
+                this.main_accnt_num.Text = "";
+                this.main_accnt_num.PasswordChar = '*';
+            }
+            else
+            {
+                this.mainLabel.Text = "Invalid account number";
+            }
+            return r;
         }
 
         private void trans_loggedIn()
@@ -66,7 +122,7 @@ namespace BankMachine
             this.main_accnt_num.Location = new System.Drawing.Point(208, 185);
             this.main_landing.Visible = false;
             this.main_enter_accnt.Visible = true;
-            this.pinAttempt = "";
+            //this.pinAttempt = "";
             this.whosTryingToLogIn = null;
         }
 
@@ -75,11 +131,12 @@ namespace BankMachine
             this.main_accnt_num.Location = new System.Drawing.Point(208, 456);
             this.main_landing.Visible = true;
             this.main_enter_accnt.Visible = false;
-            this.pinAttempt = "";
+            //this.pinAttempt = "";
             this.mainLabel.Text = "Enter your account:";
             if (whosTryingToLogIn != null)
             {
                 main_accnt_num.Text = "";
+                this.main_accnt_num.PasswordChar = (char)0;
             }
             this.whosTryingToLogIn = null;
         }
@@ -89,43 +146,16 @@ namespace BankMachine
             if (this.main_landing.Visible) { trans_enterAccntNum(); }
         }
 
-        private void delFromEnd (ref String s)
-        {
-            if (s.Length != 0) { s = s.Remove(s.Length - 1); }
-        }
-
         private void accn_num_keypad_CharEntered(object sender, char digit)
         {
-            if (digit == ((char)8))
-            {
-
-                string v = this.main_accnt_num.Text;
-                delFromEnd(ref v);
-                this.main_accnt_num.Text = v;
-
-                if (whosTryingToLogIn != null)
-                {
-                    delFromEnd(ref (this.pinAttempt));
-                } 
-            } else
-            {
-                if (whosTryingToLogIn != null) {
-                    this.main_accnt_num.Text += "*";
-                    this.pinAttempt += digit; 
-                }
-                else
-                {
-                    this.main_accnt_num.Text += digit;
-                }
-            }
         }
         
 
-        private bool tryLookupAccntNum (string str)
+        private bool try_lookup_accnt_num (string str)
         {
             int i;
             // Try to parse input number
-            if (!Int32.TryParse(main_accnt_num.Text, out i))
+            if (!Int32.TryParse(str, out i))
             {
                 return false;
             }
@@ -140,40 +170,14 @@ namespace BankMachine
             {
                 if (whosTryingToLogIn == null) // Login not yet in progress
                 {
-                    if (tryLookupAccntNum(main_accnt_num.Text))
-                    {
-                        this.mainLabel.Text = "Enter your PIN:";
-                        this.main_accnt_num.Text = "";
-                    }
-                    else 
-                    {
-                        this.mainLabel.Text = "Invalid account number";
-                        return;
-                    } 
+                    try_login(main_accnt_num.Text);
                 } else // Login in progress
                 {
-                    int left = Person.MaxPinAttempts - whosTryingToLogIn.NumPinAttempts;
-
-                    if (left<=0)
-                    {
-                        this.mainLabel.Text = "Your PIN has been blocked due to too many incorrect guesses";
-                        return;
-                    }
-
-                    bool loginSucceed = whosTryingToLogIn.guessPIN(pinAttempt);
-                    if (loginSucceed) // Login succeeded
-                    {
-                        trans_loggedIn(); 
-                    }
-                    else
-                    {
-                        this.mainLabel.Text = string.Format("PIN incorrect. {0} attempt(s) left.", left-1);
-                    }
-
+                    try_enter_pin(main_accnt_num.Text);
                 }
             } else
             {
-                trans_mainSplash();
+                trans_mainSplash(); // Cancel was pressed, go back to splash screen
             }
         }
 
@@ -186,6 +190,11 @@ namespace BankMachine
         private void welcomeLabel(object sender, EventArgs e)
         {
 
+        }
+
+        private void main_accnt_num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MainScreen_KeyPress(sender, e);
         }
 
     }

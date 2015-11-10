@@ -27,6 +27,8 @@ namespace BankMachine
             }
         }
 
+        private TextBoxBase outputTextBox; 
+
         public KeyPad()
         {
             InitializeComponent();
@@ -34,7 +36,15 @@ namespace BankMachine
 
         public KeyPad(bool dot)
         {
+            InitializeComponent();
             AllowDot = dot;
+        }
+
+        public KeyPad(bool dot, TextBoxBase b)
+        {
+            InitializeComponent();
+            AllowDot = dot;
+            outputTextBox = b; 
         }
 
         protected virtual void OnSubmit(bool isOk)
@@ -51,16 +61,38 @@ namespace BankMachine
 
         private void b_ok_Click(object sender, EventArgs e) { OnSubmit(true); }
         private void b_clr_Click(object sender, EventArgs e) { OnSubmit(false); }
-        private void numButtonClick(object sender, EventArgs e) { OnCharEntered((((Button)sender).Text)[0]); }
+        private void numButtonClick(object sender, EventArgs e) 
+        {
+            char pressed = (((Button)sender).Text)[0];
+            if (outputTextBox != null)
+            {
+                outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, pressed.ToString());
+            }
+            OnCharEntered(pressed); 
+        }
 
         private void b_del_Click(object sender, EventArgs e)
         {
             OnCharEntered((char)8);
+            if (outputTextBox != null && outputTextBox.Text.Count() != 0)
+            {
+                outputTextBox.Text = outputTextBox.Text.Remove(Math.Max(0,outputTextBox.Text.Length - 1), 1);
+            }
         }
 
         private void b_dot_Click(object sender, EventArgs e)
         {
-            if (AllowDot) { OnCharEntered('.'); }
+            if (AllowDot) 
+            { 
+                OnCharEntered('.');
+                if (outputTextBox != null && 
+                    outputTextBox.Text.Count() != 0 && 
+                    !(outputTextBox.Text.Contains('.'))
+                    )
+                {
+                    outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, ".");
+                }
+            }
         }
     }
 }
