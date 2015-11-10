@@ -47,6 +47,9 @@ namespace BankMachine
         {
             if (e.KeyChar == 's') // s for swipe 
             {
+                string pOut = "";
+                var r = Util.InputBox("Simulating swiping/inserting card", "Enter a card/account number", ref pOut);
+                
                 trans_loggedIn();
             }
         }
@@ -86,19 +89,27 @@ namespace BankMachine
             if (this.main_landing.Visible) { trans_enterAccntNum(); }
         }
 
+        private void delFromEnd (ref String s)
+        {
+            if (s.Length != 0) { s = s.Remove(s.Length - 1); }
+        }
 
         private void accn_num_keypad_CharEntered(object sender, char digit)
         {
             if (digit == ((char)8))
             {
-                if (this.main_accnt_num.Text.Length!=0)
-                {
-                    this.main_accnt_num.Text = this.main_accnt_num.Text.Remove(this.main_accnt_num.Text.Length - 1);
-                }
-            } else
-            {
+
+                string v = this.main_accnt_num.Text;
+                delFromEnd(ref v);
+                this.main_accnt_num.Text = v;
+
                 if (whosTryingToLogIn != null)
                 {
+                    delFromEnd(ref (this.pinAttempt));
+                } 
+            } else
+            {
+                if (whosTryingToLogIn != null) {
                     this.main_accnt_num.Text += "*";
                     this.pinAttempt += digit; 
                 }
@@ -108,6 +119,20 @@ namespace BankMachine
                 }
             }
         }
+        
+
+        private bool tryLookupAccntNum (string str)
+        {
+            int i;
+            // Try to parse input number
+            if (!Int32.TryParse(main_accnt_num.Text, out i))
+            {
+                return false;
+            }
+            // Try to find that person
+            whosTryingToLogIn = Program.db.lookupAccntNum(i);
+            return (whosTryingToLogIn != null);
+        }
 
         private void mainScreen_keypad_Submit(object sender, bool isOk)
         {
@@ -115,28 +140,16 @@ namespace BankMachine
             {
                 if (whosTryingToLogIn == null) // Login not yet in progress
                 {
-
-                    int i;
-                    // Try to parse input number
-                    if (!Int32.TryParse(main_accnt_num.Text, out i))
+                    if (tryLookupAccntNum(main_accnt_num.Text))
+                    {
+                        this.mainLabel.Text = "Enter your PIN:";
+                        this.main_accnt_num.Text = "";
+                    }
+                    else 
                     {
                         this.mainLabel.Text = "Invalid account number";
                         return;
-                    }
-                    // Try to find that person
-                    Person p = Program.db.lookupAccntNum(i);
-                    if (p != null)
-                    {
-                        whosTryingToLogIn = p;
-                        this.mainLabel.Text = "Enter your PIN:";
-                        this.main_accnt_num.Text = "";
-
-                    }
-                    else
-                    {
-                        this.mainLabel.Text = "Account number not found.";
-
-                    }      
+                    } 
                 } else // Login in progress
                 {
                     int left = Person.MaxPinAttempts - whosTryingToLogIn.NumPinAttempts;
@@ -150,7 +163,7 @@ namespace BankMachine
                     bool loginSucceed = whosTryingToLogIn.guessPIN(pinAttempt);
                     if (loginSucceed) // Login succeeded
                     {
-                        this.mainLabel.Text = "Pin correct.";
+                        trans_loggedIn(); 
                     }
                     else
                     {
