@@ -18,9 +18,23 @@ namespace BankMachine
         public delegate void SubmitEventHandler(object sender, bool isOk);
         public event SubmitEventHandler Submit;
 
+        private bool _allowDot;
+        public bool AllowDot { get { return _allowDot; } 
+            set
+            {
+                b_dot.Enabled = !value; 
+                _allowDot = value; 
+            }
+        }
+
         public KeyPad()
         {
             InitializeComponent();
+        }
+
+        public KeyPad(bool dot)
+        {
+            AllowDot = dot;
         }
 
         protected virtual void OnSubmit(bool isOk)
@@ -46,7 +60,7 @@ namespace BankMachine
 
         private void b_dot_Click(object sender, EventArgs e)
         {
-            OnCharEntered('.');
+            if (AllowDot) { OnCharEntered('.'); }
         }
     }
 }

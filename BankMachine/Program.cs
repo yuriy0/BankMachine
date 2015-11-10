@@ -12,6 +12,8 @@ namespace BankMachine
         public static Form mainScreen;
         public static Form mainMenu;
 
+        public static AccountDatabase db; 
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,6 +22,9 @@ namespace BankMachine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            db = new AccountDatabase();
+            db.initDefault(); 
 
             mainScreen = new MainScreen();
             mainMenu = new MainMenu();

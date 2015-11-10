@@ -10,10 +10,13 @@ namespace BankMachine
     {
         public string Name { get; private set; }
         public int AccountNumber { get; private set; }
-        public int PIN { get; set; }
+        public string PIN { get; set; }
         public List<Account> Accounts { get; private set; }
+        public int NumPinAttempts { get; private set; }
 
-        public Person(string name, int number, int pin)
+        public static int MaxPinAttempts = 3; 
+
+        public Person(string name, int number, string pin)
         {
             Name = name;
             AccountNumber = number;
@@ -23,6 +26,12 @@ namespace BankMachine
 
         public void addAccount (Account a) {
             Accounts.Add(a);
+        }
+
+        public bool guessPIN(string guess)
+        {
+            if (guess != PIN) { NumPinAttempts++; return false; }
+            return true; 
         }
 
         public void withdrawFrom(float delta, int i, string date)

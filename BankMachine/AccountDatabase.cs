@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BankMachine.Account; 
 
 namespace BankMachine
 {
     public class AccountDatabase
     {
-
         public List<Person> People { get; set; }
 
         public AccountDatabase()
@@ -21,7 +19,10 @@ namespace BankMachine
         public void initDefault()
         {
             var a0 = new Account(2345234, AccountType.Chequings);
-            a0.deposit(400.00f, "June 8th 2015"); 
+            a0.deposit(400.00f, "June 8th 2015");
+
+            var p0 = new Person("Yuriy", 0, "0");
+            People.Add(p0);
         }
 
         public void addPerson (Person a) { People.Add(a); }
