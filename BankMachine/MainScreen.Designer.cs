@@ -36,8 +36,9 @@
             this.main_landing = new System.Windows.Forms.Panel();
             this.main_enter_accnt = new System.Windows.Forms.Panel();
             this.mainLabel = new System.Windows.Forms.Label();
-            this.mainScreen_keypad = new BankMachine.KeyPad(false, main_accnt_num);
             this.label5 = new System.Windows.Forms.Label();
+            this.main_errorLabel = new System.Windows.Forms.Label();
+            this.mainScreen_keypad = new BankMachine.KeyPad();
             this.main_landing.SuspendLayout();
             this.main_enter_accnt.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // mainWelcomeLabel
             // 
             this.mainWelcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainWelcomeLabel.Location = new System.Drawing.Point(104, 53);
+            this.mainWelcomeLabel.Location = new System.Drawing.Point(87, 53);
             this.mainWelcomeLabel.Name = "mainWelcomeLabel";
             this.mainWelcomeLabel.Size = new System.Drawing.Size(400, 55);
             this.mainWelcomeLabel.TabIndex = 0;
@@ -87,7 +88,7 @@
             // 
             this.main_accnt_num.BackColor = System.Drawing.Color.White;
             this.main_accnt_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.main_accnt_num.Location = new System.Drawing.Point(208, 462);
+            this.main_accnt_num.Location = new System.Drawing.Point(191, 462);
             this.main_accnt_num.Name = "main_accnt_num";
             this.main_accnt_num.ReadOnly = true;
             this.main_accnt_num.Size = new System.Drawing.Size(182, 29);
@@ -111,7 +112,7 @@
             // 
             this.main_enter_accnt.Controls.Add(this.mainLabel);
             this.main_enter_accnt.Controls.Add(this.mainScreen_keypad);
-            this.main_enter_accnt.Location = new System.Drawing.Point(30, 111);
+            this.main_enter_accnt.Location = new System.Drawing.Point(12, 105);
             this.main_enter_accnt.Name = "main_enter_accnt";
             this.main_enter_accnt.Size = new System.Drawing.Size(560, 447);
             this.main_enter_accnt.TabIndex = 6;
@@ -128,16 +129,6 @@
             this.mainLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.mainLabel.Click += new System.EventHandler(this.label6_Click);
             // 
-            // mainScreen_keypad
-            // 
-            this.mainScreen_keypad.AllowDot = false;
-            this.mainScreen_keypad.Location = new System.Drawing.Point(185, 113);
-            this.mainScreen_keypad.Name = "mainScreen_keypad";
-            this.mainScreen_keypad.Size = new System.Drawing.Size(169, 286);
-            this.mainScreen_keypad.TabIndex = 0;
-            this.mainScreen_keypad.CharEntered += new BankMachine.KeyPad.CharEnteredEventHandler(this.accn_num_keypad_CharEntered);
-            this.mainScreen_keypad.Submit += new BankMachine.KeyPad.SubmitEventHandler(this.mainScreen_keypad_Submit);
-            // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,11 +139,35 @@
             this.label5.Text = "Enter your account:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // main_errorLabel
+            // 
+            this.main_errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.main_errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.main_errorLabel.Location = new System.Drawing.Point(97, 108);
+            this.main_errorLabel.Name = "main_errorLabel";
+            this.main_errorLabel.Size = new System.Drawing.Size(390, 32);
+            this.main_errorLabel.TabIndex = 7;
+            this.main_errorLabel.Text = "err";
+            this.main_errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.main_errorLabel.Visible = false;
+            this.main_errorLabel.Click += new System.EventHandler(this.main_errorLabel_Click);
+            // 
+            // mainScreen_keypad
+            // 
+            this.mainScreen_keypad.AllowDot = false;
+            this.mainScreen_keypad.Location = new System.Drawing.Point(185, 113);
+            this.mainScreen_keypad.Name = "mainScreen_keypad";
+            this.mainScreen_keypad.Size = new System.Drawing.Size(169, 286);
+            this.mainScreen_keypad.TabIndex = 0;
+            this.mainScreen_keypad.CharEntered += new BankMachine.KeyPad.CharEnteredEventHandler(this.accn_num_keypad_CharEntered);
+            this.mainScreen_keypad.Submit += new BankMachine.KeyPad.SubmitEventHandler(this.mainScreen_keypad_Submit);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 555);
+            this.ClientSize = new System.Drawing.Size(584, 562);
+            this.Controls.Add(this.main_errorLabel);
             this.Controls.Add(this.main_accnt_num);
             this.Controls.Add(this.main_enter_accnt);
             this.Controls.Add(this.main_landing);
@@ -185,6 +200,7 @@
         private System.Windows.Forms.Label label5;
         private KeyPad mainScreen_keypad;
         private System.Windows.Forms.Label mainLabel;
+        private System.Windows.Forms.Label main_errorLabel;
     }
 }
 

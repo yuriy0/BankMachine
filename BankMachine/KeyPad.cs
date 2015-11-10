@@ -27,7 +27,7 @@ namespace BankMachine
             }
         }
 
-        private TextBoxBase outputTextBox; 
+        public TextBoxBase outputTextBox; 
 
         public KeyPad()
         {

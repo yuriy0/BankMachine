@@ -19,6 +19,7 @@ namespace BankMachine
         {
             InitializeComponent();
             this.mainScreen_keypad.AllowDot = false;
+            this.mainScreen_keypad.outputTextBox = this.main_accnt_num; 
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,11 +53,14 @@ namespace BankMachine
                 if (try_login(pOut)) 
                 {
                     MessageBox.Show("Swiping/inserting successful. Please proceed.");
+                    trans_enterPin();
                 }
                 else
                 {
-                    MessageBox.Show(String.Format("Swiping/inserting card '{0}' failed. Please try again.", pOut));
+                    // MessageBox.Show(String.Format("Swiping/inserting card '{0}' failed. Please try again.", pOut));
                     trans_mainSplash();
+                    this.main_errorLabel.Text = "Card reading failed. Please try again.";
+                    this.main_errorLabel.Visible = true;
                 }
             }
         }
@@ -119,18 +123,30 @@ namespace BankMachine
         private void trans_enterAccntNum()
         {
             // Position the account number box in the middle and show the number pad
-            this.main_accnt_num.Location = new System.Drawing.Point(208, 185);
+            this.main_accnt_num.Location = new System.Drawing.Point(191, 185);
             this.main_landing.Visible = false;
             this.main_enter_accnt.Visible = true;
+            this.main_errorLabel.Visible = false;
             //this.pinAttempt = "";
             this.whosTryingToLogIn = null;
         }
 
+        private void trans_enterPin()
+        {
+            // Position the account number box in the middle and show the number pad
+            this.main_accnt_num.Location = new System.Drawing.Point(191, 185);
+            this.main_landing.Visible = false;
+            this.main_enter_accnt.Visible = true;
+            this.main_errorLabel.Visible = false;
+            this.main_accnt_num.PasswordChar = '*';
+        }
+
         private void trans_mainSplash()
         {
-            this.main_accnt_num.Location = new System.Drawing.Point(208, 456);
+            this.main_accnt_num.Location = new System.Drawing.Point(191, 456);
             this.main_landing.Visible = true;
             this.main_enter_accnt.Visible = false;
+            //this.main_errorLabel.Visible = false;
             //this.pinAttempt = "";
             this.mainLabel.Text = "Enter your account:";
             if (whosTryingToLogIn != null)
@@ -195,6 +211,11 @@ namespace BankMachine
         private void main_accnt_num_KeyPress(object sender, KeyPressEventArgs e)
         {
             MainScreen_KeyPress(sender, e);
+        }
+
+        private void main_errorLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
