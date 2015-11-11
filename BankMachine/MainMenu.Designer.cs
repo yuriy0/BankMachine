@@ -50,7 +50,7 @@
             // btn_withdrawls
             // 
             this.btn_withdrawls.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_withdrawls.Location = new System.Drawing.Point(55, 193);
+            this.btn_withdrawls.Location = new System.Drawing.Point(50, 193);
             this.btn_withdrawls.Name = "btn_withdrawls";
             this.btn_withdrawls.Size = new System.Drawing.Size(235, 68);
             this.btn_withdrawls.TabIndex = 2;
@@ -61,7 +61,7 @@
             // btn_deposit
             // 
             this.btn_deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_deposit.Location = new System.Drawing.Point(55, 286);
+            this.btn_deposit.Location = new System.Drawing.Point(50, 286);
             this.btn_deposit.Name = "btn_deposit";
             this.btn_deposit.Size = new System.Drawing.Size(235, 68);
             this.btn_deposit.TabIndex = 3;
@@ -71,12 +71,13 @@
             // btn_transfer
             // 
             this.btn_transfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_transfer.Location = new System.Drawing.Point(55, 382);
+            this.btn_transfer.Location = new System.Drawing.Point(50, 382);
             this.btn_transfer.Name = "btn_transfer";
             this.btn_transfer.Size = new System.Drawing.Size(235, 68);
             this.btn_transfer.TabIndex = 4;
             this.btn_transfer.Text = "Make a transfer";
             this.btn_transfer.UseVisualStyleBackColor = true;
+            this.btn_transfer.Click += new System.EventHandler(this.btn_transfer_Click);
             // 
             // btn_quit
             // 
