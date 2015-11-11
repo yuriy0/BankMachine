@@ -14,7 +14,11 @@ namespace BankMachine
         public List<Account> Accounts { get; private set; }
         public int NumPinAttempts { get; private set; }
 
-        public static int MaxPinAttempts = 3; 
+        public static int MaxPinAttempts = 3;
+
+        private string lastReceipt = "";
+
+        public string LastReceipt { get { return lastReceipt; } }
 
         public Person(string name, int number, string pin)
         {
@@ -36,12 +40,14 @@ namespace BankMachine
 
         public void withdrawFrom(float delta, int i, string date)
         {
-            if (Accounts.Count < i)
+            if (i < Accounts.Count)
             {
                 Accounts[i].withdraw(delta, date);
+                lastReceipt = String.Format("User: {0}\nAccount #{1}\n{2} account:\n\tCash withdrawl: -${3}.00\n\tBalance: ${4}"
+                               , Name,AccountNumber,Accounts[i].Type,delta,Accounts[i].Amount);
             } else
             {
-                throw new Exception(string.Format("Account {0} does not exist for {1}", i, Name));
+                throw new Exception(string.Format("account #{0} does not exist", i, Name));
             }
         }
     }

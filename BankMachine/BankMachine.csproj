@@ -74,6 +74,12 @@
     <Compile Include="Withdraw.Designer.cs">
       <DependentUpon>Withdraw.cs</DependentUpon>
     </Compile>
+    <Compile Include="WithdrawConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WithdrawConfirm.Designer.cs">
+      <DependentUpon>WithdrawConfirm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="KeyPad.resx">
       <DependentUpon>KeyPad.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Withdraw.resx">
       <DependentUpon>Withdraw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WithdrawConfirm.resx">
+      <DependentUpon>WithdrawConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

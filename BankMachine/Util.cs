@@ -52,5 +52,22 @@ namespace BankMachine
             return dialogResult;
         }
 
+        public static bool countBills (int amount, ref int n20, ref int n50)
+        {
+            if (amount >= 50)
+            {
+                if (countBills(amount - 50, ref n20, ref n50))
+                { n50++;  return true; }
+
+            } else if (amount >= 20)
+            {
+                if (countBills(amount - 20, ref n20, ref n50))
+                { n20++; return true; }
+
+            } 
+            return amount==0;  
+
+        }
+
     }
 }

@@ -190,6 +190,7 @@
             // b_dot
             // 
             this.b_dot.Font = new System.Drawing.Font("DejaVu Sans", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_dot.ForeColor = System.Drawing.SystemColors.ControlText;
             this.b_dot.Location = new System.Drawing.Point(115, 174);
             this.b_dot.Name = "b_dot";
             this.b_dot.Size = new System.Drawing.Size(50, 51);

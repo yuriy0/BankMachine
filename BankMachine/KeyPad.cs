@@ -22,9 +22,16 @@ namespace BankMachine
         public bool AllowDot { get { return _allowDot; } 
             set
             {
-                b_dot.Enabled = !value; 
+                b_dot.Enabled = value;
+                b_dot.ForeColor = value ? SystemColors.ControlText : SystemColors.ControlDark;
                 _allowDot = value; 
             }
+        }
+
+        public String CancelText
+        {
+            get { return this.b_clr.Text;  }
+            set { this.b_clr.Text = value; }
         }
 
         public TextBoxBase outputTextBox; 
