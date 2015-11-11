@@ -28,7 +28,9 @@ namespace BankMachine
 
         public void init ()
         {
-            this.keypad_transfer.Visible = false; 
+            this.keypad_transfer.Visible = false;
+            this.Show();
+            this.keypad_transfer.outputTextBox = this.txt_amount; 
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
