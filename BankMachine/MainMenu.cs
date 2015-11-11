@@ -59,5 +59,11 @@ namespace BankMachine
             this.Hide();
             Program.withdrawMenu.initWith(user);
         }
+
+        private void btn_balances_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.balances.initWith(user);
+        }
     }
 }

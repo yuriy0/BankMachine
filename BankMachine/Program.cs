@@ -12,7 +12,8 @@ namespace BankMachine
         public static MainScreen mainScreen;
         public static MainMenu mainMenu;
         public static Withdraw withdrawMenu;
-        public static WithdrawConfirm withdrawConfirm; 
+        public static WithdrawConfirm withdrawConfirm;
+        public static Balances balances;
 
         public static AccountDatabase db; 
 
@@ -32,6 +33,7 @@ namespace BankMachine
             mainMenu = new MainMenu();
             withdrawMenu = new Withdraw();
             withdrawConfirm = new WithdrawConfirm();
+            balances = new Balances();
 
             Application.Run(mainScreen);
         }

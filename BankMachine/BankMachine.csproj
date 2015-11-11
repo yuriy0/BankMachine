@@ -46,6 +46,12 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDatabase.cs" />
+    <Compile Include="Balances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balances.Designer.cs">
+      <DependentUpon>Balances.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="KeyPad.cs">
       <SubType>UserControl</SubType>
@@ -80,6 +86,9 @@
     <Compile Include="WithdrawConfirm.Designer.cs">
       <DependentUpon>WithdrawConfirm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Balances.resx">
+      <DependentUpon>Balances.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeyPad.resx">
       <DependentUpon>KeyPad.cs</DependentUpon>
     </EmbeddedResource>

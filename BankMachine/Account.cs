@@ -28,7 +28,7 @@ namespace BankMachine
             float newAmount = this.Amount + delta;
             if (newAmount < 0) { throw new Exception("you have insufficient funds"); }
             this.Amount = newAmount;
-            History.Add(string.Format("Deposited ${0} on {1}", delta, date));
+            History.Add(string.Format("+${0} on {1}", delta, date));
         }
 
         public void withdraw(float delta, string date)
@@ -36,7 +36,7 @@ namespace BankMachine
             float newAmount = this.Amount - delta;
             if (newAmount < 0) { throw new Exception("you have insufficient funds"); }
             this.Amount = newAmount;
-            History.Add(string.Format("Withdrew ${0} on {1}", delta, date));
+            History.Add(string.Format("-${0} on {1}", delta, date));
         }
 
         public void transferTo(float delta, Account accnt, string date)

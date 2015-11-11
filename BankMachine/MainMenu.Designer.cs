@@ -108,6 +108,7 @@
             this.btn_balances.TabIndex = 5;
             this.btn_balances.Text = "View account balances";
             this.btn_balances.UseVisualStyleBackColor = true;
+            this.btn_balances.Click += new System.EventHandler(this.btn_balances_Click);
             // 
             // MainMenu
             // 
