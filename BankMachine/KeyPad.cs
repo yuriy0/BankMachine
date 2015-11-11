@@ -64,7 +64,7 @@ namespace BankMachine
         private void numButtonClick(object sender, EventArgs e) 
         {
             char pressed = (((Button)sender).Text)[0];
-            if (outputTextBox != null)
+            if (outputTextBox != null && outputTextBox.TextLength < outputTextBox.MaxLength)
             {
                 outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, pressed.ToString());
             }
@@ -87,7 +87,8 @@ namespace BankMachine
                 OnCharEntered('.');
                 if (outputTextBox != null && 
                     outputTextBox.Text.Count() != 0 && 
-                    !(outputTextBox.Text.Contains('.'))
+                    !(outputTextBox.Text.Contains('.')) &&
+                    outputTextBox.TextLength < outputTextBox.MaxLength
                     )
                 {
                     outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, ".");

@@ -22,6 +22,12 @@ namespace BankMachine
             this.mainScreen_keypad.outputTextBox = this.main_accnt_num; 
         }
 
+        public void init()
+        {
+            this.Show();
+            this.trans_mainSplash();
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -117,7 +123,7 @@ namespace BankMachine
         private void trans_loggedIn()
         {
             this.Hide();
-            Program.mainMenu.Show();
+            Program.mainMenu.initWith(whosTryingToLogIn);
         }
 
         private void trans_enterAccntNum()
@@ -153,7 +159,7 @@ namespace BankMachine
             {
                 main_accnt_num.Text = "";
                 this.main_accnt_num.PasswordChar = (char)0;
-            }
+            } 
             this.whosTryingToLogIn = null;
         }
 

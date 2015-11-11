@@ -9,8 +9,9 @@ namespace BankMachine
     public static class Program
     {
     // Available screens. Make one screen for each set of views that share some information
-        public static Form mainScreen;
-        public static Form mainMenu;
+        public static MainScreen mainScreen;
+        public static MainMenu mainMenu;
+        public static Withdraw withdrawMenu; 
 
         public static AccountDatabase db; 
 
@@ -28,6 +29,7 @@ namespace BankMachine
 
             mainScreen = new MainScreen();
             mainMenu = new MainMenu();
+            withdrawMenu = new Withdraw(); 
 
             Application.Run(mainScreen);
         }
