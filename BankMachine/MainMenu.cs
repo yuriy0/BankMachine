@@ -35,6 +35,7 @@ namespace BankMachine
         public void init()
         {
             this.Show();
+            this.Select();
         }
 
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)

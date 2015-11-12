@@ -33,20 +33,20 @@
             this.btn_confirm = new System.Windows.Forms.Button();
             this.chk_receipt = new System.Windows.Forms.CheckBox();
             this.lbl_title = new System.Windows.Forms.Label();
-            this.pic_cash = new System.Windows.Forms.PictureBox();
-            this.pic_cheque = new System.Windows.Forms.PictureBox();
             this.lbl_dir = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_backHome = new System.Windows.Forms.Button();
             this.pnl_inputObjs = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_depositTo = new System.Windows.Forms.Label();
             this.pnl_confirmDeposit = new System.Windows.Forms.Panel();
             this.lst_input = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).BeginInit();
+            this.pic_cash = new System.Windows.Forms.PictureBox();
+            this.pic_cheque = new System.Windows.Forms.PictureBox();
             this.pnl_inputObjs.SuspendLayout();
             this.pnl_confirmDeposit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).BeginInit();
             this.SuspendLayout();
             // 
             // lst_accountsTo
@@ -109,30 +109,6 @@
             this.lbl_title.Text = "Insert cheques or cash into the slot";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pic_cash
-            // 
-            this.pic_cash.BackgroundImage = global::BankMachine.Properties.Resources.bill;
-            this.pic_cash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_cash.Location = new System.Drawing.Point(124, 114);
-            this.pic_cash.Margin = new System.Windows.Forms.Padding(2);
-            this.pic_cash.Name = "pic_cash";
-            this.pic_cash.Size = new System.Drawing.Size(252, 138);
-            this.pic_cash.TabIndex = 6;
-            this.pic_cash.TabStop = false;
-            this.pic_cash.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pic_cheque
-            // 
-            this.pic_cheque.BackgroundImage = global::BankMachine.Properties.Resources.cheque;
-            this.pic_cheque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_cheque.Location = new System.Drawing.Point(124, 281);
-            this.pic_cheque.Margin = new System.Windows.Forms.Padding(2);
-            this.pic_cheque.Name = "pic_cheque";
-            this.pic_cheque.Size = new System.Drawing.Size(252, 138);
-            this.pic_cheque.TabIndex = 7;
-            this.pic_cheque.TabStop = false;
-            this.pic_cheque.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // lbl_dir
             // 
             this.lbl_dir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,16 +121,16 @@
     "cheques to be desposited at once.";
             this.lbl_dir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btn_backHome
             // 
-            this.button3.Location = new System.Drawing.Point(0, 521);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 40);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Back to home";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_backHome.Location = new System.Drawing.Point(0, 521);
+            this.btn_backHome.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_backHome.Name = "btn_backHome";
+            this.btn_backHome.Size = new System.Drawing.Size(100, 40);
+            this.btn_backHome.TabIndex = 10;
+            this.btn_backHome.Text = "Back to home";
+            this.btn_backHome.UseVisualStyleBackColor = true;
+            this.btn_backHome.Click += new System.EventHandler(this.button3_Click);
             // 
             // pnl_inputObjs
             // 
@@ -224,12 +200,36 @@
             this.lst_input.Size = new System.Drawing.Size(485, 225);
             this.lst_input.TabIndex = 11;
             // 
+            // pic_cash
+            // 
+            this.pic_cash.BackgroundImage = global::BankMachine.Properties.Resources.bill;
+            this.pic_cash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_cash.Location = new System.Drawing.Point(124, 114);
+            this.pic_cash.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_cash.Name = "pic_cash";
+            this.pic_cash.Size = new System.Drawing.Size(252, 138);
+            this.pic_cash.TabIndex = 6;
+            this.pic_cash.TabStop = false;
+            this.pic_cash.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pic_cheque
+            // 
+            this.pic_cheque.BackgroundImage = global::BankMachine.Properties.Resources.cheque;
+            this.pic_cheque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_cheque.Location = new System.Drawing.Point(124, 281);
+            this.pic_cheque.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_cheque.Name = "pic_cheque";
+            this.pic_cheque.Size = new System.Drawing.Size(252, 138);
+            this.pic_cheque.TabIndex = 7;
+            this.pic_cheque.TabStop = false;
+            this.pic_cheque.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // Deposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_backHome);
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.pnl_confirmDeposit);
             this.Controls.Add(this.pnl_inputObjs);
@@ -241,11 +241,11 @@
             this.ShowIcon = false;
             this.Text = "Bank Machine";
             this.Load += new System.EventHandler(this.Deposit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).EndInit();
             this.pnl_inputObjs.ResumeLayout(false);
             this.pnl_confirmDeposit.ResumeLayout(false);
             this.pnl_confirmDeposit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,7 +260,7 @@
         private System.Windows.Forms.PictureBox pic_cash;
         private System.Windows.Forms.PictureBox pic_cheque;
         private System.Windows.Forms.Label lbl_dir;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_backHome;
         private System.Windows.Forms.Label lbl_depositTo;
         private System.Windows.Forms.Panel pnl_inputObjs;
         private System.Windows.Forms.Panel pnl_confirmDeposit;

@@ -24,8 +24,9 @@ namespace BankMachine
 
             var a1 = new Account(9954, AccountType.Savings);
             a1.deposit(63.32f, DateTime.Parse("July 4 2015"));
+            a1.deposit(600.00f, DateTime.Parse("Oct 9 2015"));
 
-            var p0 = new Person("Yuriy", "0", "0");
+            var p0 = new Person("Yuriy", "1234", "5678");
             p0.addAccount(a0); p0.addAccount(a1);
             People.Add(p0);
         }

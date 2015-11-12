@@ -30,11 +30,13 @@ namespace BankMachine
 
         public void init()
         {
+            lst_accountsTo.Items.Clear();
             foreach (Account a in person.Accounts)
             {
                 lst_accountsTo.Items.Add(a.Type.ToString());
             }
 
+            trans_inputCheques();
             this.Show();
 
             cheques.Clear();
@@ -52,6 +54,7 @@ namespace BankMachine
         {
             pnl_inputObjs.Visible = b;
             pnl_confirmDeposit.Visible = !b;
+            btn_backHome.Visible = b; 
         }
 
         private void trans_inputCheques()
@@ -63,7 +66,7 @@ namespace BankMachine
             lbl_dir.ForeColor = Color.Black;
             lst_input.Items.Clear();
             checkConfirmEnabled();
-            cheques = simulateChequeInput();
+            //cheques = simulateChequeInput();
         }
 
         private void trans_confirmDeposit()
@@ -142,7 +145,8 @@ namespace BankMachine
 
         private void button1_Click(object sender, EventArgs e)
         {
-            trans_inputCheques();
+            this.Hide();
+            Program.mainMenu.init();
         }
 
         public List<DepositObject> simulateChequeInput()
@@ -203,6 +207,8 @@ Enter cash in the format 'CASH;dollar value'
                 {
                     MessageBox.Show(person.LastReceipt, "Simulation of printing receipt");
                 }
+                this.Hide();
+                Program.mainMenu.init();
             }
         }
 

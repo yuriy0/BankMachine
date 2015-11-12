@@ -23,3 +23,7 @@ KNOWN ISSUE:
 - Sometimes a window will not pop up at all, but will be opened minimized in the task bar.
 - Closing any of the modes may not exit the application
 - The Pay Bills function is severly unfinished. In fact it can't even be said to work.
+
+AVAILABLE ACCOUNTS:
+The following accounts are available for testing:
+1. Account #1234 / PIN 5678

@@ -38,7 +38,7 @@ namespace BankMachine
             return true; 
         }
 
-        public void withdrawFrom(float delta, int i) { withdrawFrom(delta, i);  }
+        public void withdrawFrom(float delta, int i) { withdrawFrom(delta, i, DateTime.Now); }
 
         public void withdrawFrom(float delta, int i, DateTime date)
         {
@@ -68,7 +68,7 @@ namespace BankMachine
                 lastReceipt += "\n====\nFinal balance: $" + Accounts[to].Amount.ToString("0.00");
             } else
             {
-                throw new Exception(string.Format("account #{0} does not exist", to, Name));
+                throw new Exception(string.Format("account #{0} does not exist", to));
             }
         }
         public void depositMany(List<DepositObject> deps,int to)
@@ -76,15 +76,15 @@ namespace BankMachine
             depositMany(deps, to, DateTime.Now);
         }
 
-        public void transferBetween(float delta, int from, int to) { transferBetween(delta, from, to);  }
+        public void transferBetween(float delta, int from, int to) { transferBetween(delta, from, to, DateTime.Now);  }
 
         public void transferBetween(float delta, int from, int to, DateTime date)
         {
             if (from >= Accounts.Count)
-            { throw new Exception(string.Format("account #{0} does not exist", from, Name)); }
+            { throw new Exception(string.Format("account #{0} does not exist", from)); }
 
             if (to >= Accounts.Count)
-            { throw new Exception(string.Format("account #{0} does not exist", to, Name)); }
+            { throw new Exception(string.Format("account #{0} does not exist", to)); }
 
             Accounts[from].withdraw(delta, date);
             Accounts[to].deposit(delta, date);
