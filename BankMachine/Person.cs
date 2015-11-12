@@ -54,6 +54,28 @@ namespace BankMachine
             }
         }
 
+        public void depositMany(List<DepositObject> deps, int to, DateTime date)
+        {
+            if (to < Accounts.Count)
+            {
+                lastReceipt = String.Format("User: {0}\nAccount #{1}\nDeposited to {2} account:"
+                                   , Name, AccountNumber, Accounts[to].Type);
+                foreach (DepositObject d in deps)
+                {
+                    Accounts[to].deposit(d.value, date);
+                    lastReceipt += "\n  " + d.ToString();
+                }
+                lastReceipt += "\n====\nFinal balance: $" + Accounts[to].Amount.ToString("0.00");
+            } else
+            {
+                throw new Exception(string.Format("account #{0} does not exist", to, Name));
+            }
+        }
+        public void depositMany(List<DepositObject> deps,int to)
+        {
+            depositMany(deps, to, DateTime.Now);
+        }
+
         public void transferBetween(float delta, int from, int to) { transferBetween(delta, from, to);  }
 
         public void transferBetween(float delta, int from, int to, DateTime date)

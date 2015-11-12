@@ -76,7 +76,7 @@ namespace BankMachine
         {
             if (this.chk_receipt.Checked)
             {
-                MessageBox.Show(user.LastReceipt);
+                MessageBox.Show(user.LastReceipt, "Simulation of printing receipt");
             }
             this.Hide();
             Program.mainMenu.init();

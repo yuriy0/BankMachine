@@ -15,15 +15,12 @@ namespace BankMachine
 
 
         public Person person = null;
-        private List<String> cheque = new List<string>();
+        private List<DepositObject> cheques = new List<DepositObject>();
 
         public Deposit()
         {
             InitializeComponent();
         }
-
-
-
 
         public void initWith(Person p)
         {
@@ -33,29 +30,54 @@ namespace BankMachine
 
         public void init()
         {
-
-
-
             foreach (Account a in person.Accounts)
             {
                 lst_accountsTo.Items.Add(a.Type.ToString());
             }
-            //MessageBox.Show("This is a simulation of depositing a cheque and cash");
-            //cheque.Add("Emaad Fazal &120");
-            //cheque.Add("Emaad Fazal &150");
-            //cheque.Add("Emaad Fazal &150");
 
             this.Show();
-            MessageBox.Show(simulateChequeInput().Count.ToString());
 
+            cheques.Clear();
+            while (cheques.Count == 0)
+            {
+                cheques = simulateChequeInput();
 
-
+                lbl_dir.ForeColor = Color.Red;
+                lbl_dir.Text = "Error - cheques or cash not recognized, please try again or speak to a teller.";
+            }
+            trans_confirmDeposit();
         }
 
+        private void trans_g(bool b)
+        {
+            pnl_inputObjs.Visible = b;
+            pnl_confirmDeposit.Visible = !b;
+        }
 
+        private void trans_inputCheques()
+        {
+            trans_g(true);
+            lbl_title.Text = "Insert cheques or cash into the slot";
+            lbl_title.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_dir.Text = "Insert cash and cheques face up into the slot as show below. Insert all cash and cheques to be desposited at once.";
+            lbl_dir.ForeColor = Color.Black;
+            lst_input.Items.Clear();
+            checkConfirmEnabled();
+            cheques = simulateChequeInput();
+        }
 
-
-
+        private void trans_confirmDeposit()
+        {
+            trans_g(false);
+            lbl_title.Text = "You are about to deposit:";
+            lbl_title.TextAlign = ContentAlignment.MiddleLeft;
+            lst_input.Items.Clear();
+            foreach (DepositObject o in cheques)
+            {
+                lst_input.Items.Add(o.ToString());
+            }
+            checkConfirmEnabled();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -64,9 +86,19 @@ namespace BankMachine
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            checkConfirmEnabled();
+        }
 
-
-
+        private void checkConfirmEnabled()
+        {
+            if (lst_accountsTo.SelectedIndex == -1)
+            {
+                btn_confirm.Enabled = false;
+            }
+            else
+            {
+                btn_confirm.Enabled = true;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -78,65 +110,39 @@ namespace BankMachine
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            label1.Show();
-            lst_accountsTo.Show();
+            //label1.Show();
+            /*lst_accountsTo.Show();
             button1.Show();
-            button2.Show();
-            checkBox1.Show();
+            btn_confirm.Show();
+            chk_receipt.Show();
 
 
-            label2.Hide();
-            label3.Hide();
+            lbl_title.Hide();
+            lbl_dir.Hide();
             button3.Hide();
-            pictureBox1.Hide();
-            pictureBox2.Hide();
+            pic_cash.Hide();
+            pic_cheque.Hide();*/
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            label1.Show();
-            lst_accountsTo.Show();
+            //label1.Show();
+            /*lst_accountsTo.Show();
             button1.Show();
-            button2.Show();
-            checkBox1.Show();
+            btn_confirm.Show();
+            chk_receipt.Show();
             lst_input.Show();
 
-            label2.Hide();
-            label3.Hide();
+            lbl_title.Hide();
+            lbl_dir.Hide();
             button3.Hide();
-            pictureBox1.Hide();
-            pictureBox2.Hide();
+            pic_cash.Hide();
+            pic_cheque.Hide();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Hide();
-            lst_accountsTo.Hide();
-            button1.Hide();
-            button2.Hide();
-            checkBox1.Hide();
-
-
-            label2.Show();
-            label3.Show();
-            button3.Show();
-            pictureBox1.Show();
-
-            pictureBox2.Show();
-
-        }
-
-         //public interface HasValue
-
-        public class DepositObject
-        {
-            public float value;
-            public string type;
-            public string meta; 
-            public DepositObject(float v, string t, string m)
-            {
-                value = v; type = t; meta = m; 
-            }
+            trans_inputCheques();
         }
 
         public List<DepositObject> simulateChequeInput()
@@ -168,15 +174,14 @@ Enter cash in the format 'CASH;dollar value'
                     switch (parts[0])
                     {
                         case "CASH":
-                            o.Add(new DepositObject(float.Parse(parts[1]), "Cash", null));
-                            break;
-
-                        case "CHEQUE":
                             float val = float.Parse(parts[1]);
                             if (!validCashVals.Contains(val))
                             { continue; }
+                            o.Add(new DepositObject(val, "Cash", null));
+                            break;
 
-                            //o.Add(new DepositObject(, "Cheque", parts[2]));
+                        case "CHEQUE":
+                            o.Add(new DepositObject(float.Parse(parts[1]), "Cheque", parts[2]));
                             break;
 
                         default: continue;
@@ -189,16 +194,20 @@ Enter cash in the format 'CASH;dollar value'
             return o;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_confirm_Click(object sender, EventArgs e)
         {
-           
-
- for (int i = 0; i < cheque.Count; i++ )
+            if (lst_accountsTo.SelectedIndex != -1)
             {
-                String temp = cheque[i].Split('&')[1];
-                lst_input.Items.Add(temp);
+                person.depositMany(cheques, lst_accountsTo.SelectedIndex);
+                if (this.chk_receipt.Checked)
+                {
+                    MessageBox.Show(person.LastReceipt, "Simulation of printing receipt");
+                }
             }
+        }
 
+        private void Deposit_Load(object sender, EventArgs e)
+        {
 
         }
     }
