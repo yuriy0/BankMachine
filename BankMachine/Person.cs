@@ -38,7 +38,9 @@ namespace BankMachine
             return true; 
         }
 
-        public void withdrawFrom(float delta, int i, string date)
+        public void withdrawFrom(float delta, int i) { withdrawFrom(delta, i);  }
+
+        public void withdrawFrom(float delta, int i, DateTime date)
         {
             if (i < Accounts.Count)
             {
@@ -52,7 +54,9 @@ namespace BankMachine
             }
         }
 
-        public void transferBetween(float delta, int from, int to, string date)
+        public void transferBetween(float delta, int from, int to) { transferBetween(delta, from, to);  }
+
+        public void transferBetween(float delta, int from, int to, DateTime date)
         {
             if (from >= Accounts.Count)
             { throw new Exception(string.Format("account #{0} does not exist", from, Name)); }

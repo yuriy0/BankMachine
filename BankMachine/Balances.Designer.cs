@@ -51,12 +51,17 @@
             treeNode10,
             treeNode11});
             this.tview_balances = new System.Windows.Forms.TreeView();
+            this.lbl_title = new System.Windows.Forms.Label();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.btn_backHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tview_balances
             // 
+            this.tview_balances.BackColor = System.Drawing.SystemColors.Menu;
+            this.tview_balances.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tview_balances.Font = new System.Drawing.Font("DejaVu Sans Mono", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tview_balances.Location = new System.Drawing.Point(51, 166);
+            this.tview_balances.Location = new System.Drawing.Point(12, 115);
             this.tview_balances.Name = "tview_balances";
             treeNode1.Name = "Node1";
             treeNode1.Text = "Node1";
@@ -85,15 +90,50 @@
             this.tview_balances.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode12});
-            this.tview_balances.Size = new System.Drawing.Size(491, 341);
+            this.tview_balances.Size = new System.Drawing.Size(560, 350);
             this.tview_balances.TabIndex = 0;
             this.tview_balances.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // lbl_title
+            // 
+            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_title.Location = new System.Drawing.Point(2, 37);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(581, 55);
+            this.lbl_title.TabIndex = 1;
+            this.lbl_title.Text = "Account balances";
+            this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_print
+            // 
+            this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.Location = new System.Drawing.Point(307, 471);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(235, 68);
+            this.btn_print.TabIndex = 7;
+            this.btn_print.Text = "Print current view";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
+            // btn_backHome
+            // 
+            this.btn_backHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_backHome.Location = new System.Drawing.Point(-1, 517);
+            this.btn_backHome.Name = "btn_backHome";
+            this.btn_backHome.Size = new System.Drawing.Size(112, 45);
+            this.btn_backHome.TabIndex = 15;
+            this.btn_backHome.Text = "Back to home";
+            this.btn_backHome.UseVisualStyleBackColor = true;
+            this.btn_backHome.Click += new System.EventHandler(this.btn_backHome_Click);
             // 
             // Balances
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
+            this.Controls.Add(this.btn_backHome);
+            this.Controls.Add(this.btn_print);
+            this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.tview_balances);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -108,5 +148,8 @@
         #endregion
 
         private System.Windows.Forms.TreeView tview_balances;
+        private System.Windows.Forms.Label lbl_title;
+        private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button btn_backHome;
     }
 }

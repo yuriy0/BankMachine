@@ -36,7 +36,7 @@ namespace BankMachine
                 if (!evenBills)
                 { throw new Exception("the machine can only dispense $20 and $50 bills");  }
 
-                p.withdrawFrom(amount,accntFrom,"today");
+                p.withdrawFrom(amount,accntFrom);
                 this.lbl_msg.Text = String.Format("You are about to withdraw ${0}.00 from your {1} account.",
                                             withdrawlAmount,
                                             user.Accounts[accntFrom].Type);
