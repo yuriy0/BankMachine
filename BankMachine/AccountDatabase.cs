@@ -20,6 +20,7 @@ namespace BankMachine
         {
             var a0 = new Account(2345234, AccountType.Chequings);
             a0.deposit(400.00f, DateTime.Parse("June 8 2015"));
+            a0.withdraw(20f, DateTime.Parse("June 12 2015"));
 
             var a1 = new Account(9954, AccountType.Savings);
             a1.deposit(63.32f, DateTime.Parse("July 4 2015"));

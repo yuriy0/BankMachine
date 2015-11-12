@@ -18,9 +18,11 @@ namespace BankMachine
             time = _time; delta = _delta; comment = _comment;
         }
         public override string ToString() {
-            return String.Format("{3}{0} on {1}{2}",delta.ToString("0.00"), time.ToShortDateString(), 
+            return String.Format("{3}${0} on {1}{2}",
+                Math.Abs(delta).ToString("0.00"), 
+                time.ToShortDateString(), 
                 comment==""?"":"("+comment+")",
-                delta<0 ? "-" : "");
+                delta<0 ? "-" : "+");
         }
     }
 
@@ -58,7 +60,7 @@ namespace BankMachine
             float newAmount = this.Amount - delta;
             if (newAmount < 0) { throw new Exception("you have insufficient funds"); }
             this.Amount = newAmount;
-            History.Add(new HistoryEntry(date, delta, "withdrawal"));
+            History.Add(new HistoryEntry(date, -delta, "withdrawal"));
         }
 
         public void withdraw(float del) { withdraw(del, DateTime.Now);  }
