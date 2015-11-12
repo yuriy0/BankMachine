@@ -87,13 +87,14 @@
             this.label4.Size = new System.Drawing.Size(216, 31);
             this.label4.TabIndex = 3;
             this.label4.Text = "or Enter Account";
+            this.label4.Click += new System.EventHandler(this.label4_Click_2);
             // 
             // main_accnt_num
             // 
             this.main_accnt_num.BackColor = System.Drawing.Color.White;
             this.main_accnt_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.main_accnt_num.Location = new System.Drawing.Point(255, 569);
-            this.main_accnt_num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_accnt_num.Margin = new System.Windows.Forms.Padding(4);
             this.main_accnt_num.Name = "main_accnt_num";
             this.main_accnt_num.ReadOnly = true;
             this.main_accnt_num.Size = new System.Drawing.Size(241, 34);
@@ -108,7 +109,7 @@
             this.main_landing.Controls.Add(this.label3);
             this.main_landing.Controls.Add(this.label4);
             this.main_landing.Location = new System.Drawing.Point(93, 212);
-            this.main_landing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_landing.Margin = new System.Windows.Forms.Padding(4);
             this.main_landing.Name = "main_landing";
             this.main_landing.Size = new System.Drawing.Size(596, 337);
             this.main_landing.TabIndex = 5;
@@ -118,8 +119,8 @@
             // 
             this.main_enter_accnt.Controls.Add(this.mainLabel);
             this.main_enter_accnt.Controls.Add(this.mainScreen_keypad);
-            this.main_enter_accnt.Location = new System.Drawing.Point(16, 129);
-            this.main_enter_accnt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_enter_accnt.Location = new System.Drawing.Point(19, 129);
+            this.main_enter_accnt.Margin = new System.Windows.Forms.Padding(4);
             this.main_enter_accnt.Name = "main_enter_accnt";
             this.main_enter_accnt.Size = new System.Drawing.Size(747, 550);
             this.main_enter_accnt.TabIndex = 6;
@@ -142,10 +143,11 @@
             this.mainScreen_keypad.AllowDot = false;
             this.mainScreen_keypad.CancelText = "X";
             this.mainScreen_keypad.Location = new System.Drawing.Point(247, 139);
-            this.mainScreen_keypad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainScreen_keypad.Margin = new System.Windows.Forms.Padding(5);
             this.mainScreen_keypad.Name = "mainScreen_keypad";
             this.mainScreen_keypad.Size = new System.Drawing.Size(225, 352);
             this.mainScreen_keypad.TabIndex = 0;
+            this.mainScreen_keypad.TextMode = false;
             this.mainScreen_keypad.CharEntered += new BankMachine.KeyPad.CharEnteredEventHandler(this.accn_num_keypad_CharEntered);
             this.mainScreen_keypad.Submit += new BankMachine.KeyPad.SubmitEventHandler(this.mainScreen_keypad_Submit);
             // 
@@ -184,7 +186,7 @@
             this.Controls.Add(this.main_landing);
             this.Controls.Add(this.mainWelcomeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainScreen";

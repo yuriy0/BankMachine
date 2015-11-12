@@ -225,5 +225,15 @@ namespace BankMachine
             if (this.main_landing.Visible) { trans_enterAccntNum(); }
         }
 
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+            if (this.main_landing.Visible) { trans_enterAccntNum(); }
+        }
+
+        private void label4_Click_2(object sender, EventArgs e)
+        {
+            if (this.main_landing.Visible) { trans_enterAccntNum(); }
+        }
+
     }
 }
