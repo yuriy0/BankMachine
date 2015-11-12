@@ -34,7 +34,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txt_amount = new System.Windows.Forms.TextBox();
             this.btn_confirm = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.lst_transferFrom = new System.Windows.Forms.ListBox();
             this.lst_transferTo = new System.Windows.Forms.ListBox();
             this.pnl_accounts = new System.Windows.Forms.Panel();
@@ -44,31 +43,34 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(209, 42);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.Size = new System.Drawing.Size(583, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter an amount to transfer";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 53);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.Size = new System.Drawing.Size(198, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Transfer from account:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(380, 53);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(337, 42);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 13);
+            this.label4.Size = new System.Drawing.Size(176, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Transfer to account:";
             // 
@@ -85,10 +87,13 @@
             // 
             // txt_amount
             // 
-            this.txt_amount.Location = new System.Drawing.Point(209, 76);
+            this.txt_amount.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_amount.Location = new System.Drawing.Point(141, 92);
             this.txt_amount.Margin = new System.Windows.Forms.Padding(2);
             this.txt_amount.Name = "txt_amount";
-            this.txt_amount.Size = new System.Drawing.Size(135, 20);
+            this.txt_amount.ReadOnly = true;
+            this.txt_amount.Size = new System.Drawing.Size(276, 38);
             this.txt_amount.TabIndex = 19;
             this.txt_amount.Text = "Press to enter amount";
             this.txt_amount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_amount_MouseClick);
@@ -96,40 +101,35 @@
             // btn_confirm
             // 
             this.btn_confirm.Enabled = false;
-            this.btn_confirm.Location = new System.Drawing.Point(387, 211);
+            this.btn_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_confirm.Location = new System.Drawing.Point(387, 263);
             this.btn_confirm.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(96, 57);
             this.btn_confirm.TabIndex = 21;
-            this.btn_confirm.Text = "Confirm";
+            this.btn_confirm.Text = "Continue";
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "label2";
-            // 
             // lst_transferFrom
             // 
+            this.lst_transferFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_transferFrom.FormattingEnabled = true;
-            this.lst_transferFrom.Location = new System.Drawing.Point(28, 87);
+            this.lst_transferFrom.ItemHeight = 33;
+            this.lst_transferFrom.Location = new System.Drawing.Point(12, 69);
             this.lst_transferFrom.Name = "lst_transferFrom";
-            this.lst_transferFrom.Size = new System.Drawing.Size(120, 95);
+            this.lst_transferFrom.Size = new System.Drawing.Size(198, 136);
             this.lst_transferFrom.TabIndex = 24;
             this.lst_transferFrom.SelectedIndexChanged += new System.EventHandler(this.lst_transferFrom_SelectedIndexChanged);
             // 
             // lst_transferTo
             // 
+            this.lst_transferTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_transferTo.FormattingEnabled = true;
-            this.lst_transferTo.Location = new System.Drawing.Point(367, 87);
+            this.lst_transferTo.ItemHeight = 33;
+            this.lst_transferTo.Location = new System.Drawing.Point(315, 69);
             this.lst_transferTo.Name = "lst_transferTo";
-            this.lst_transferTo.Size = new System.Drawing.Size(120, 95);
+            this.lst_transferTo.Size = new System.Drawing.Size(198, 136);
             this.lst_transferTo.TabIndex = 25;
             this.lst_transferTo.SelectedIndexChanged += new System.EventHandler(this.lst_transferTo_SelectedIndexChanged);
             // 
@@ -162,7 +162,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
             this.Controls.Add(this.keypad_transfer);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_amount);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -185,7 +184,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txt_amount;
         private System.Windows.Forms.Button btn_confirm;
-        private System.Windows.Forms.Label label2;
         private KeyPad keypad_transfer;
         private System.Windows.Forms.ListBox lst_transferFrom;
         private System.Windows.Forms.ListBox lst_transferTo;

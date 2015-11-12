@@ -35,8 +35,8 @@ namespace BankMachine
             {
                 p.transferBetween(amount, accntFrom, accntTo, "today");
 
-                this.lbl_msg.Text = String.Format("You are about to transfer ${0}.00 from your {1} account to your {2} account.",
-                                            transferAmount,
+                this.lbl_msg.Text = String.Format("You are about to transfer ${0} from your {1} account to your {2} account.",
+                                            transferAmount.ToString("0.00"),
                                             user.Accounts[accntFrom].Type,
                                             user.Accounts[accntTo].Type);
 
@@ -44,8 +44,8 @@ namespace BankMachine
 
             } catch (Exception e) 
             {
-                this.lbl_msg.Text = String.Format("You are unable to transfer ${0}.00 from your {1} account to your {2} account because {3}.",
-                                            transferAmount,
+                this.lbl_msg.Text = String.Format("You are unable to transfer ${0} from your {1} account to your {2} account because {3}.",
+                                            transferAmount.ToString("0.00"),
                                             user.Accounts[accntFrom].Type,
                                             user.Accounts[accntTo].Type,
                                             e.Message);

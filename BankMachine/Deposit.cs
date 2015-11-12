@@ -15,8 +15,8 @@ namespace BankMachine
 
 
         public Person person = null;
-        private List<String> cheque= new List<string>() ;
-        
+        private List<String> cheque = new List<string>();
+
         public Deposit()
         {
             InitializeComponent();
@@ -33,16 +33,16 @@ namespace BankMachine
 
         public void init()
         {
-            
+
             this.Show();
             listBox1.Items.Add("Chequing");
             listBox1.Items.Add("Savings");
             MessageBox.Show("This is a simulation of depositing a cheque and cash");
-            cheque.Add("Emaad Fazal &120" );
+            cheque.Add("Emaad Fazal &120");
             cheque.Add("Emaad Fazal &150");
             cheque.Add("Emaad Fazal &150");
-           
-            
+
+
 
 
 
@@ -60,7 +60,7 @@ namespace BankMachine
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
 
         }
@@ -117,9 +117,7 @@ namespace BankMachine
             label3.Show();
             button3.Show();
             pictureBox1.Show();
-        
-    }
-}
+
             pictureBox2.Show();
 
         }
@@ -133,9 +131,13 @@ namespace BankMachine
                 String temp = cheque[i].Split('&')[1];
                 listBox2.Items.Add(temp);
             }
+
 for (int i = 0; i < cheque.Count; i++)
             {
-                person.Accounts[0].deposit((float)(listBox2.Items., "today"); ;
+                //person.Accounts[0].deposit((float)(listBox2.Items., "today"); ;
             }
         }
+    }
+}
+
 

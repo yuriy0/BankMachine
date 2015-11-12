@@ -40,6 +40,8 @@ namespace BankMachine
             withdrawConfirm = new WithdrawConfirm();
             balances = new Balances();
             transfers = new Transfer();
+            deposits = new Deposit();
+            transferConfirm = new TransferConfirm();
 
             Application.Run(mainScreen);
         }
