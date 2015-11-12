@@ -10,51 +10,51 @@ using System.Windows.Forms;
 
 namespace BankMachine
 {
-    public partial class WithdrawConfirm : Form
+    public partial class TransferConfirm : Form
     {
 
         public Person user;
-        public int withdrawlAmount = 0;
+        public float transferAmount = 0;
         public int accountFrom = 0;
-        private int n20 = 0, n50 = 0;
+        public int accountTo = 0;
         private bool isErr; 
 
-        public WithdrawConfirm()
+        public TransferConfirm()
         {
             InitializeComponent();
         }
 
-        public void initWith (Person p, int amount, int accntFrom)
+        public void initWith (Person p, float amount, int accntFrom, int accntTo)
         {
             user = p;
-            withdrawlAmount = amount;
+            transferAmount = amount;
             accountFrom = accntFrom;
+            accountTo = accntTo;
 
             try 
             {
-                bool evenBills = Util.countBills(withdrawlAmount, ref n20, ref n50);
-                if (!evenBills)
-                { throw new Exception("the machine can only dispense $20 and $50 bills");  }
+                p.transferBetween(amount, accntFrom, accntTo, "today");
 
-                p.withdrawFrom(amount,accntFrom,"today");
-                this.lbl_msg.Text = String.Format("You are about to withdraw ${0}.00 from your {1} account.",
-                                            withdrawlAmount,
-                                            user.Accounts[accntFrom].Type);
-                isErr = false; 
+                this.lbl_msg.Text = String.Format("You are about to transfer ${0}.00 from your {1} account to your {2} account.",
+                                            transferAmount,
+                                            user.Accounts[accntFrom].Type,
+                                            user.Accounts[accntTo].Type);
+
+                isErr = false;
+
             } catch (Exception e) 
             {
-                this.lbl_msg.Text = String.Format("You are unable to withdraw ${0}.00 from your {1} account because {2}.",
-                                            withdrawlAmount,
+                this.lbl_msg.Text = String.Format("You are unable to transfer ${0}.00 from your {1} account to your {2} account because {3}.",
+                                            transferAmount,
                                             user.Accounts[accntFrom].Type,
+                                            user.Accounts[accntTo].Type,
                                             e.Message);
-
-                isErr = true; 
+                isErr = true;
             }
 
             this.btn_confirm.Enabled = !isErr;
             this.chk_receipt.Enabled = !isErr;
             this.lbl_err.Visible = isErr;
-
             this.Show();
         }
 
@@ -62,14 +62,16 @@ namespace BankMachine
         {
             this.Hide();
 
-            // undo the withdrawl
+            //Undo the transaciton
             if (!isErr)
             {
-                user.Accounts[accountFrom].Amount += withdrawlAmount;
+                user.Accounts[accountTo].Amount -= transferAmount;
+                user.Accounts[accountFrom].Amount += transferAmount;
+                user.Accounts[accountTo].History.RemoveAt(user.Accounts[accountTo].History.Count - 1);
                 user.Accounts[accountFrom].History.RemoveAt(user.Accounts[accountFrom].History.Count - 1);
             }
 
-            Program.withdrawMenu.init();
+            Program.transfers.init();
         }
 
         private void btn_confirm_Click(object sender, EventArgs e)

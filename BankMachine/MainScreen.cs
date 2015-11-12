@@ -19,7 +19,8 @@ namespace BankMachine
         {
             InitializeComponent();
             this.mainScreen_keypad.AllowDot = false;
-            this.mainScreen_keypad.outputTextBox = this.main_accnt_num; 
+            this.mainScreen_keypad.outputTextBox = this.main_accnt_num;
+            this.mainScreen_keypad.TextMode = true;
         }
 
         public void init()
@@ -175,14 +176,8 @@ namespace BankMachine
 
         private bool try_lookup_accnt_num (string str)
         {
-            int i;
-            // Try to parse input number
-            if (!Int32.TryParse(str, out i))
-            {
-                return false;
-            }
             // Try to find that person
-            whosTryingToLogIn = Program.db.lookupAccntNum(i);
+            whosTryingToLogIn = Program.db.lookupAccntNum(str);
             return (whosTryingToLogIn != null);
         }
 

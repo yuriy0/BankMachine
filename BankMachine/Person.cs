@@ -9,7 +9,7 @@ namespace BankMachine
     public class Person
     {
         public string Name { get; private set; }
-        public int AccountNumber { get; private set; }
+        public string AccountNumber { get; private set; }
         public string PIN { get; set; }
         public List<Account> Accounts { get; private set; }
         public int NumPinAttempts { get; private set; }
@@ -20,7 +20,7 @@ namespace BankMachine
 
         public string LastReceipt { get { return lastReceipt; } }
 
-        public Person(string name, int number, string pin)
+        public Person(string name, string number, string pin)
         {
             Name = name;
             AccountNumber = number;
@@ -44,11 +44,30 @@ namespace BankMachine
             {
                 Accounts[i].withdraw(delta, date);
                 lastReceipt = String.Format("User: {0}\nAccount #{1}\n{2} account:\n\tCash withdrawl: -${3}.00\n\tBalance: ${4}"
-                               , Name,AccountNumber,Accounts[i].Type,delta,Accounts[i].Amount);
+                                   , Name, AccountNumber, Accounts[i].Type, delta, Accounts[i].Amount);
+                
             } else
             {
                 throw new Exception(string.Format("account #{0} does not exist", i, Name));
             }
+        }
+
+        public void transferBetween(float delta, int from, int to, string date)
+        {
+            if (from >= Accounts.Count)
+            { throw new Exception(string.Format("account #{0} does not exist", from, Name)); }
+
+            if (to >= Accounts.Count)
+            { throw new Exception(string.Format("account #{0} does not exist", to, Name)); }
+
+            Accounts[from].withdraw(delta, date);
+            Accounts[to].deposit(delta, date);
+
+            lastReceipt = String.Format("User: {0}\nAccount #{1}\nTransfer from {2} to {3} accounts:\n\tTransfer amount: ${4}.00\n\tBalance in {2}: ${5}\n\tBalance in {3}: ${6}"
+                               , Name, AccountNumber, Accounts[from].Type, Accounts[to].Type,
+                                 delta, Accounts[from].Amount, Accounts[to].Amount);
+            
+
         }
     }
 }

@@ -58,6 +58,12 @@
     <Compile Include="Transfer.designer.cs">
       <DependentUpon>Transfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransferConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferConfirm.designer.cs">
+      <DependentUpon>TransferConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="KeyPad.cs">
       <SubType>UserControl</SubType>
@@ -117,6 +123,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TransferConfirm.resx">
+      <DependentUpon>TransferConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Withdraw.resx">
       <DependentUpon>Withdraw.cs</DependentUpon>
     </EmbeddedResource>

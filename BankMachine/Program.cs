@@ -15,6 +15,7 @@ namespace BankMachine
         public static WithdrawConfirm withdrawConfirm;
         public static Balances balances;
         public static Transfer transfers; 
+        public static TransferConfirm transferConfirm;
 
 
         public static AccountDatabase db; 
@@ -37,6 +38,7 @@ namespace BankMachine
             withdrawConfirm = new WithdrawConfirm();
             balances = new Balances();
             transfers = new Transfer();
+            transferConfirm = new TransferConfirm();
 
             Application.Run(mainScreen);
         }
