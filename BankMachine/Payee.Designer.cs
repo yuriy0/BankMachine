@@ -52,9 +52,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 43);
+            this.label1.Location = new System.Drawing.Point(73, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 44);
+            this.label1.Size = new System.Drawing.Size(226, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage payees";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -62,10 +63,9 @@
             // btn_backHome
             // 
             this.btn_backHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_backHome.Location = new System.Drawing.Point(-1, 497);
-            this.btn_backHome.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_backHome.Location = new System.Drawing.Point(-1, 404);
             this.btn_backHome.Name = "btn_backHome";
-            this.btn_backHome.Size = new System.Drawing.Size(149, 55);
+            this.btn_backHome.Size = new System.Drawing.Size(112, 45);
             this.btn_backHome.TabIndex = 15;
             this.btn_backHome.Text = "Back to home";
             this.btn_backHome.UseVisualStyleBackColor = true;
@@ -73,9 +73,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(277, 410);
+            this.button1.Location = new System.Drawing.Point(208, 333);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 58);
+            this.button1.Size = new System.Drawing.Size(185, 47);
             this.button1.TabIndex = 16;
             this.button1.Text = "Pay selected payee...";
             this.button1.UseVisualStyleBackColor = true;
@@ -84,18 +85,19 @@
             // list
             // 
             this.list.FormattingEnabled = true;
-            this.list.ItemHeight = 16;
-            this.list.Location = new System.Drawing.Point(88, 139);
+            this.list.Location = new System.Drawing.Point(66, 113);
+            this.list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(383, 148);
+            this.list.Size = new System.Drawing.Size(288, 121);
             this.list.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(97, 43);
+            this.label3.Location = new System.Drawing.Point(73, 35);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 44);
+            this.label3.Size = new System.Drawing.Size(226, 36);
             this.label3.TabIndex = 19;
             this.label3.Text = "Pay a bill";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -104,18 +106,20 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(478, -2);
+            this.button2.Location = new System.Drawing.Point(358, -2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 37);
+            this.button2.Size = new System.Drawing.Size(79, 30);
             this.button2.TabIndex = 20;
             this.button2.Text = "Edit...";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 108);
+            this.label2.Location = new System.Drawing.Point(9, 88);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 28);
+            this.label2.Size = new System.Drawing.Size(151, 23);
             this.label2.TabIndex = 21;
             this.label2.Text = "You have selected payee:";
             this.label2.Visible = false;
@@ -123,9 +127,10 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 172);
+            this.label4.Location = new System.Drawing.Point(8, 140);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(373, 41);
+            this.label4.Size = new System.Drawing.Size(280, 33);
             this.label4.TabIndex = 22;
             this.label4.Text = "Water bill, account # 60436432";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,9 +138,10 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(178, 270);
+            this.label5.Location = new System.Drawing.Point(134, 219);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 23);
+            this.label5.Size = new System.Drawing.Size(147, 19);
             this.label5.TabIndex = 23;
             this.label5.Text = "Enter transfer amount";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,17 +149,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 296);
+            this.textBox1.Location = new System.Drawing.Point(123, 240);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 22);
+            this.textBox1.Size = new System.Drawing.Size(176, 20);
             this.textBox1.TabIndex = 24;
             this.textBox1.Visible = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(285, 418);
+            this.button3.Location = new System.Drawing.Point(214, 340);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 62);
+            this.button3.Size = new System.Drawing.Size(140, 50);
             this.button3.TabIndex = 25;
             this.button3.Text = "Continue...";
             this.button3.UseVisualStyleBackColor = true;
@@ -163,10 +171,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(-1, 497);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(-1, 404);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 55);
+            this.button4.Size = new System.Drawing.Size(112, 45);
             this.button4.TabIndex = 26;
             this.button4.Text = "Back to payees";
             this.button4.UseVisualStyleBackColor = true;
@@ -175,9 +182,10 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(36, 242);
+            this.label6.Location = new System.Drawing.Point(27, 197);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(268, 23);
+            this.label6.Size = new System.Drawing.Size(201, 19);
             this.label6.TabIndex = 27;
             this.label6.Text = "You are about to transfer:";
             this.label6.Visible = false;
@@ -185,18 +193,20 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 301);
+            this.label7.Location = new System.Drawing.Point(27, 245);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.Size = new System.Drawing.Size(75, 19);
             this.label7.TabIndex = 28;
             this.label7.Text = "$100";
             this.label7.Visible = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(164, 301);
+            this.button5.Location = new System.Drawing.Point(123, 245);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(189, 23);
+            this.button5.Size = new System.Drawing.Size(142, 19);
             this.button5.TabIndex = 29;
             this.button5.Text = "Back to transfer amount ...";
             this.button5.UseVisualStyleBackColor = true;
@@ -205,9 +215,10 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(36, 360);
+            this.label8.Location = new System.Drawing.Point(27, 292);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(247, 23);
+            this.label8.Size = new System.Drawing.Size(185, 19);
             this.label8.TabIndex = 30;
             this.label8.Text = "Select account to transfer from";
             this.label8.Visible = false;
@@ -215,10 +226,10 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(39, 396);
+            this.listBox1.Location = new System.Drawing.Point(29, 322);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(232, 84);
+            this.listBox1.Size = new System.Drawing.Size(175, 69);
             this.listBox1.TabIndex = 31;
             this.listBox1.Visible = false;
             // 
@@ -226,9 +237,10 @@
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(83, 64);
+            this.label9.Location = new System.Drawing.Point(62, 52);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(301, 44);
+            this.label9.Size = new System.Drawing.Size(226, 36);
             this.label9.TabIndex = 32;
             this.label9.Text = "Error";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -236,9 +248,10 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(-4, 149);
+            this.label10.Location = new System.Drawing.Point(-3, 121);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(587, 39);
+            this.label10.Size = new System.Drawing.Size(440, 32);
             this.label10.TabIndex = 33;
             this.label10.Text = "You are unable to pay $100.00 to Water bill, account # 60436432 because you have " +
     "insufficient funds.";
@@ -246,9 +259,9 @@
             // 
             // Payee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 553);
+            this.ClientSize = new System.Drawing.Size(584, 562);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listBox1);
@@ -268,7 +281,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_backHome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Payee";
+            this.ShowIcon = false;
             this.Text = "Payee";
             this.ResumeLayout(false);
             this.PerformLayout();

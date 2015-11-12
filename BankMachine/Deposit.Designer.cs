@@ -38,11 +38,11 @@
             this.lbl_dir = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.pnl_inputObjs = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_depositTo = new System.Windows.Forms.Label();
             this.pnl_confirmDeposit = new System.Windows.Forms.Panel();
             this.lst_input = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).BeginInit();
             this.pnl_inputObjs.SuspendLayout();
@@ -168,6 +168,22 @@
             this.pnl_inputObjs.Size = new System.Drawing.Size(496, 466);
             this.pnl_inputObjs.TabIndex = 12;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(361, 102);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(33, 159);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(361, 270);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(33, 159);
+            this.panel2.TabIndex = 10;
+            // 
             // lbl_depositTo
             // 
             this.lbl_depositTo.AutoSize = true;
@@ -208,22 +224,6 @@
             this.lst_input.Size = new System.Drawing.Size(485, 225);
             this.lst_input.TabIndex = 11;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(361, 102);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(33, 159);
-            this.panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(361, 270);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(33, 159);
-            this.panel2.TabIndex = 10;
-            // 
             // Deposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,9 +233,13 @@
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.pnl_confirmDeposit);
             this.Controls.Add(this.pnl_inputObjs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Deposit";
-            this.Text = "Deposit";
+            this.ShowIcon = false;
+            this.Text = "Bank Machine";
             this.Load += new System.EventHandler(this.Deposit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_cash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_cheque)).EndInit();

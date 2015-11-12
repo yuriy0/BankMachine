@@ -166,9 +166,13 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnl_accounts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Transfer";
-            this.Text = "Form8";
+            this.ShowIcon = false;
+            this.Text = "Bank Machine";
             this.pnl_accounts.ResumeLayout(false);
             this.pnl_accounts.PerformLayout();
             this.ResumeLayout(false);
