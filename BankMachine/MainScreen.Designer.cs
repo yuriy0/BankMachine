@@ -90,9 +90,8 @@
             // 
             this.main_accnt_num.BackColor = System.Drawing.Color.White;
             this.main_accnt_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.main_accnt_num.Location = new System.Drawing.Point(255, 569);
-            this.main_accnt_num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main_accnt_num.Location = new System.Drawing.Point(150, 462);
+            this.main_accnt_num.Margin = new System.Windows.Forms.Padding(4);
             this.main_accnt_num.Name = "main_accnt_num";
             this.main_accnt_num.ReadOnly = true;
             this.main_accnt_num.Size = new System.Drawing.Size(257, 29);
@@ -139,7 +138,7 @@
             this.mainScreen_keypad.AllowDot = false;
             this.mainScreen_keypad.CancelText = "X";
             this.mainScreen_keypad.Location = new System.Drawing.Point(185, 113);
-            this.mainScreen_keypad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainScreen_keypad.Margin = new System.Windows.Forms.Padding(4);
             this.mainScreen_keypad.Name = "mainScreen_keypad";
             this.mainScreen_keypad.Size = new System.Drawing.Size(169, 286);
             this.mainScreen_keypad.TabIndex = 0;
