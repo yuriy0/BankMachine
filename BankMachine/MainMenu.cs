@@ -71,5 +71,12 @@ namespace BankMachine
             this.Hide();
             Program.transfers.initWith(user);
         }
+
+        private void btn_deposit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.Deposit.initWith(user);
+
+        }
     }
 }

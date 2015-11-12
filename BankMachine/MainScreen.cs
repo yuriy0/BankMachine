@@ -167,6 +167,7 @@ namespace BankMachine
         private void main_accnt_num_MouseClick(object sender, MouseEventArgs e)
         {
             if (this.main_landing.Visible) { trans_enterAccntNum(); }
+
         }
 
         private void accn_num_keypad_CharEntered(object sender, char digit)
@@ -217,6 +218,11 @@ namespace BankMachine
         private void main_errorLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (this.main_landing.Visible) { trans_enterAccntNum(); }
         }
 
     }
