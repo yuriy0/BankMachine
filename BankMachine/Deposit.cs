@@ -117,28 +117,27 @@ namespace BankMachine
             label3.Show();
             button3.Show();
             pictureBox1.Show();
+
             pictureBox2.Show();
-
-
-
-
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
 
-
-            for (int i = 0; i < cheque.Count; i++)
+ for (int i = 0; i < cheque.Count; i++ )
             {
                 String temp = cheque[i].Split('&')[1];
-                
-                float x = float.Parse(temp);
-                person.Accounts[0].deposit(x, "Today");// depoist in chequing account
-            
+                listBox2.Items.Add(temp);
             }
 
+for (int i = 0; i < cheque.Count; i++)
+            {
+                //person.Accounts[0].deposit((float)(listBox2.Items., "today"); ;
+            }
         }
-
     }
 }
+
+

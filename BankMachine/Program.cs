@@ -41,6 +41,8 @@ namespace BankMachine
             balances = new Balances();
             transfers = new Transfer();
             deposits = new Deposit();
+            transferConfirm = new TransferConfirm();
+
             Application.Run(mainScreen);
         }
     }
