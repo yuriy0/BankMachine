@@ -22,4 +22,4 @@ KNOWN ISSUE:
   up in the same position, but they don't. This doesn't affect the UI/simulation. 
 - Sometimes a window will not pop up at all, but will be opened minimized in the task bar.
 - Closing any of the modes may not exit the application
-- The Pay Bills function is severly unfinished. 
+- The Pay Bills function is severly unfinished. In fact it can't even be said to work.
