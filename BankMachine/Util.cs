@@ -69,5 +69,8 @@ namespace BankMachine
 
         }
 
+        // public static  
     }
+
+    // public interface 
 }
