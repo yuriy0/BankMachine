@@ -199,10 +199,7 @@ Enter cash in the format 'CASH;dollar value'
                 lst_input.Items.Add(temp);
             }
 
-for (int i = 0; i < cheque.Count; i++)
-            {
-                //person.Accounts[0].deposit((float)(listBox2.Items., "today"); ;
-            }
+
         }
     }
 }

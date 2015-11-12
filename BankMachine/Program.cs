@@ -17,6 +17,7 @@ namespace BankMachine
         public static Transfer transfers;
         public static Deposit deposits;
         public static TransferConfirm transferConfirm;
+        public static Payee payee;
 
 
 
@@ -42,7 +43,7 @@ namespace BankMachine
             transfers = new Transfer();
             deposits = new Deposit();
             transferConfirm = new TransferConfirm();
-
+            payee = new Payee();
             Application.Run(mainScreen);
         }
     }
