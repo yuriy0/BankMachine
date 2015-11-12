@@ -33,7 +33,7 @@ namespace BankMachine
 
             try 
             {
-                p.transferBetween(amount, accntFrom, accntTo, "today");
+                p.transferBetween(amount, accntFrom, accntTo);
 
                 this.lbl_msg.Text = String.Format("You are about to transfer ${0} from your {1} account to your {2} account.",
                                             transferAmount.ToString("0.00"),

@@ -21,12 +21,17 @@ namespace BankMachine
             this.mainScreen_keypad.AllowDot = false;
             this.mainScreen_keypad.outputTextBox = this.main_accnt_num;
             this.mainScreen_keypad.TextMode = true;
+
+            this.dummyPanel.TabStop = false;
+            this.dummyPanel.Focus();
+            this.ActiveControl = this.dummyPanel;
         }
 
         public void init()
         {
             this.Show();
             this.trans_mainSplash();
+            this.main_accnt_num.Text = "Press to enter accnt#";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -127,13 +132,17 @@ namespace BankMachine
             Program.mainMenu.initWith(whosTryingToLogIn);
         }
 
+        private Point topLoc = new System.Drawing.Point(150, 185);
+        private Point botLoc = new System.Drawing.Point(150, 456); 
+
         private void trans_enterAccntNum()
         {
             // Position the account number box in the middle and show the number pad
-            this.main_accnt_num.Location = new System.Drawing.Point(191, 185);
+            this.main_accnt_num.Location = topLoc;
             this.main_landing.Visible = false;
             this.main_enter_accnt.Visible = true;
             this.main_errorLabel.Visible = false;
+            this.main_accnt_num.Text = "";
             //this.pinAttempt = "";
             this.whosTryingToLogIn = null;
         }
@@ -141,7 +150,7 @@ namespace BankMachine
         private void trans_enterPin()
         {
             // Position the account number box in the middle and show the number pad
-            this.main_accnt_num.Location = new System.Drawing.Point(191, 185);
+            this.main_accnt_num.Location = topLoc;
             this.main_landing.Visible = false;
             this.main_enter_accnt.Visible = true;
             this.main_errorLabel.Visible = false;
@@ -150,7 +159,7 @@ namespace BankMachine
 
         private void trans_mainSplash()
         {
-            this.main_accnt_num.Location = new System.Drawing.Point(191, 456);
+            this.main_accnt_num.Location = botLoc;
             this.main_landing.Visible = true;
             this.main_enter_accnt.Visible = false;
             //this.main_errorLabel.Visible = false;

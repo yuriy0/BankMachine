@@ -34,7 +34,7 @@ namespace BankMachine
             {
                 TreeNode[] children = new TreeNode[a.History.Count];
                 for (int i = 0; i < a.History.Count; i++)
-                    { children[i] = new TreeNode(a.History[i]); }
+                    { children[i] = new TreeNode(a.History[i].ToString()); }
                 N.Add(new TreeNode(String.Format("{0,-15} ${1,-10}", a.Type, a.Amount.ToString("0.00")), children));
             }
         }
