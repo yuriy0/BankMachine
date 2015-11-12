@@ -52,7 +52,7 @@
             // 
             this.btn_withdrawls.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_withdrawls.Location = new System.Drawing.Point(67, 238);
-            this.btn_withdrawls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_withdrawls.Margin = new System.Windows.Forms.Padding(4);
             this.btn_withdrawls.Name = "btn_withdrawls";
             this.btn_withdrawls.Size = new System.Drawing.Size(313, 84);
             this.btn_withdrawls.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             this.btn_deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deposit.Location = new System.Drawing.Point(67, 352);
-            this.btn_deposit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_deposit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_deposit.Name = "btn_deposit";
             this.btn_deposit.Size = new System.Drawing.Size(313, 84);
             this.btn_deposit.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             this.btn_transfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_transfer.Location = new System.Drawing.Point(67, 470);
-            this.btn_transfer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_transfer.Margin = new System.Windows.Forms.Padding(4);
             this.btn_transfer.Name = "btn_transfer";
             this.btn_transfer.Size = new System.Drawing.Size(313, 84);
             this.btn_transfer.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.btn_quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_quit.Location = new System.Drawing.Point(411, 470);
-            this.btn_quit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_quit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_quit.Name = "btn_quit";
             this.btn_quit.Size = new System.Drawing.Size(313, 84);
             this.btn_quit.TabIndex = 7;
@@ -100,18 +100,19 @@
             // 
             this.btn_payBills.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_payBills.Location = new System.Drawing.Point(411, 352);
-            this.btn_payBills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_payBills.Margin = new System.Windows.Forms.Padding(4);
             this.btn_payBills.Name = "btn_payBills";
             this.btn_payBills.Size = new System.Drawing.Size(313, 84);
             this.btn_payBills.TabIndex = 6;
             this.btn_payBills.Text = "Pay bills";
             this.btn_payBills.UseVisualStyleBackColor = true;
+            this.btn_payBills.Click += new System.EventHandler(this.btn_payBills_Click);
             // 
             // btn_balances
             // 
             this.btn_balances.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_balances.Location = new System.Drawing.Point(411, 238);
-            this.btn_balances.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_balances.Margin = new System.Windows.Forms.Padding(4);
             this.btn_balances.Name = "btn_balances";
             this.btn_balances.Size = new System.Drawing.Size(313, 84);
             this.btn_balances.TabIndex = 5;
@@ -132,7 +133,7 @@
             this.Controls.Add(this.btn_withdrawls);
             this.Controls.Add(this.lbl_welcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainMenu";

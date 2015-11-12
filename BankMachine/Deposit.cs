@@ -129,13 +129,11 @@ namespace BankMachine
  for (int i = 0; i < cheque.Count; i++ )
             {
                 String temp = cheque[i].Split('&')[1];
-                listBox2.Items.Add(temp);
+                float x = float.Parse(temp);
+                person.Accounts[0].deposit(x, "Date");
             }
 
-for (int i = 0; i < cheque.Count; i++)
-            {
-                //person.Accounts[0].deposit((float)(listBox2.Items., "today"); ;
-            }
+
         }
     }
 }

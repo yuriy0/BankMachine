@@ -79,5 +79,12 @@ namespace BankMachine
             
 
         }
+
+        private void btn_payBills_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.payee.initWith(user);
+           
+        }
     }
 }
