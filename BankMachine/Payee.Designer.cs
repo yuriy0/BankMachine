@@ -45,6 +45,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -220,11 +222,35 @@
             this.listBox1.TabIndex = 31;
             this.listBox1.Visible = false;
             // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(83, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(301, 44);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Error";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(-4, 149);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(587, 39);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "You are unable to pay $100.00 to Water bill, account # 60436432 because you have " +
+    "insufficient funds.";
+            this.label10.Visible = false;
+            // 
             // Payee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 553);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button5);
@@ -268,5 +294,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
