@@ -84,11 +84,14 @@
             this.label4.Size = new System.Drawing.Size(172, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "or Enter Account";
+            this.label4.Click += new System.EventHandler(this.label4_Click_2);
             // 
             // main_accnt_num
             // 
             this.main_accnt_num.BackColor = System.Drawing.Color.White;
             this.main_accnt_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.main_accnt_num.Location = new System.Drawing.Point(255, 569);
+            this.main_accnt_num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main_accnt_num.Location = new System.Drawing.Point(150, 462);
             this.main_accnt_num.Name = "main_accnt_num";
             this.main_accnt_num.ReadOnly = true;
@@ -186,6 +189,7 @@
             this.Controls.Add(this.main_landing);
             this.Controls.Add(this.mainWelcomeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainScreen";
