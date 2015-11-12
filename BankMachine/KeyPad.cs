@@ -28,6 +28,8 @@ namespace BankMachine
             }
         }
 
+        public bool TextMode { get; set; }
+
         public String CancelText
         {
             get { return this.b_clr.Text;  }
@@ -71,9 +73,20 @@ namespace BankMachine
         private void numButtonClick(object sender, EventArgs e) 
         {
             char pressed = (((Button)sender).Text)[0];
+
+            if (outputTextBox.Text == "0" && !this.TextMode)
+            {
+                outputTextBox.Text = pressed.ToString(); return;
+            }
+
             if (outputTextBox != null && outputTextBox.TextLength < outputTextBox.MaxLength)
             {
-                outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, pressed.ToString());
+                string[] v = outputTextBox.Text.Split('.'); 
+                if (v.Length < 2 || (v.Length == 2 && v[1].Length<2))
+                {
+                    outputTextBox.Text = outputTextBox.Text.Insert(outputTextBox.Text.Length, pressed.ToString());
+                }
+
             }
             OnCharEntered(pressed); 
         }
@@ -85,6 +98,9 @@ namespace BankMachine
             {
                 outputTextBox.Text = outputTextBox.Text.Remove(Math.Max(0,outputTextBox.Text.Length - 1), 1);
             }
+
+            if (outputTextBox.Text == "" && !this.TextMode)
+            { outputTextBox.Text = "0";  }
         }
 
         private void b_dot_Click(object sender, EventArgs e)
@@ -92,6 +108,7 @@ namespace BankMachine
             if (AllowDot) 
             { 
                 OnCharEntered('.');
+
                 if (outputTextBox != null && 
                     outputTextBox.Text.Count() != 0 && 
                     !(outputTextBox.Text.Contains('.')) &&

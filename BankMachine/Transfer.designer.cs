@@ -37,8 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lst_transferFrom = new System.Windows.Forms.ListBox();
             this.lst_transferTo = new System.Windows.Forms.ListBox();
-            this.keypad_transfer = new BankMachine.KeyPad();
             this.pnl_accounts = new System.Windows.Forms.Panel();
+            this.keypad_transfer = new BankMachine.KeyPad();
             this.pnl_accounts.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,15 +85,17 @@
             // 
             // txt_amount
             // 
-            this.txt_amount.Location = new System.Drawing.Point(209, 79);
+            this.txt_amount.Location = new System.Drawing.Point(209, 76);
             this.txt_amount.Margin = new System.Windows.Forms.Padding(2);
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.Size = new System.Drawing.Size(135, 20);
             this.txt_amount.TabIndex = 19;
-            this.txt_amount.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_amount.Text = "Press to enter amount";
+            this.txt_amount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_amount_MouseClick);
             // 
             // btn_confirm
             // 
+            this.btn_confirm.Enabled = false;
             this.btn_confirm.Location = new System.Drawing.Point(387, 211);
             this.btn_confirm.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirm.Name = "btn_confirm";
@@ -112,7 +114,6 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lst_transferFrom
             // 
@@ -121,6 +122,7 @@
             this.lst_transferFrom.Name = "lst_transferFrom";
             this.lst_transferFrom.Size = new System.Drawing.Size(120, 95);
             this.lst_transferFrom.TabIndex = 24;
+            this.lst_transferFrom.SelectedIndexChanged += new System.EventHandler(this.lst_transferFrom_SelectedIndexChanged);
             // 
             // lst_transferTo
             // 
@@ -129,34 +131,37 @@
             this.lst_transferTo.Name = "lst_transferTo";
             this.lst_transferTo.Size = new System.Drawing.Size(120, 95);
             this.lst_transferTo.TabIndex = 25;
-            // 
-            // keypad_transfer
-            // 
-            this.keypad_transfer.AllowDot = false;
-            this.keypad_transfer.CancelText = "X";
-            this.keypad_transfer.Location = new System.Drawing.Point(175, 42);
-            this.keypad_transfer.Name = "keypad_transfer";
-            this.keypad_transfer.Size = new System.Drawing.Size(169, 286);
-            this.keypad_transfer.TabIndex = 23;
+            this.lst_transferTo.SelectedIndexChanged += new System.EventHandler(this.lst_transferTo_SelectedIndexChanged);
             // 
             // pnl_accounts
             // 
-            this.pnl_accounts.Controls.Add(this.keypad_transfer);
             this.pnl_accounts.Controls.Add(this.lst_transferTo);
             this.pnl_accounts.Controls.Add(this.btn_confirm);
             this.pnl_accounts.Controls.Add(this.label4);
             this.pnl_accounts.Controls.Add(this.label3);
             this.pnl_accounts.Controls.Add(this.lst_transferFrom);
-            this.pnl_accounts.Location = new System.Drawing.Point(22, 145);
+            this.pnl_accounts.Location = new System.Drawing.Point(24, 149);
             this.pnl_accounts.Name = "pnl_accounts";
             this.pnl_accounts.Size = new System.Drawing.Size(534, 348);
             this.pnl_accounts.TabIndex = 26;
+            // 
+            // keypad_transfer
+            // 
+            this.keypad_transfer.AllowDot = false;
+            this.keypad_transfer.CancelText = "X";
+            this.keypad_transfer.Location = new System.Drawing.Point(192, 158);
+            this.keypad_transfer.Name = "keypad_transfer";
+            this.keypad_transfer.Size = new System.Drawing.Size(169, 286);
+            this.keypad_transfer.TabIndex = 23;
+            this.keypad_transfer.TextMode = false;
+            this.keypad_transfer.Submit += new BankMachine.KeyPad.SubmitEventHandler(this.keypad_transfer_Submit);
             // 
             // Transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
+            this.Controls.Add(this.keypad_transfer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_amount);
             this.Controls.Add(this.button2);
@@ -165,7 +170,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Transfer";
             this.Text = "Form8";
-            this.Load += new System.EventHandler(this.Form8_Load);
             this.pnl_accounts.ResumeLayout(false);
             this.pnl_accounts.PerformLayout();
             this.ResumeLayout(false);
